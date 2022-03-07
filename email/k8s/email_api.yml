@@ -18,7 +18,7 @@ spec:
       containers:
         - image: keoffor/project2-email:%TAG%
           imagePullPolicy: Always
-          name: project2-container
+          name: email-container
           ports:
             - containerPort: 4001
 
@@ -26,18 +26,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: project2-service
+  labels:
+    app: email-service
+  name: emailapi
+  namespace: default
 spec:
-  selector:
-    app: projectpod
+  type: LoadBalancer
   ports:
-    - protocol: TCP
+    - name: project-loader
       port: 4001
       targetPort: 4001
-  #  clusterIP: 10.0.171.239
-  type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-      - ip: 192.0.2.127
+  selector:
+    app: project2app
 
