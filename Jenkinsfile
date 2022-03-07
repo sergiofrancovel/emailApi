@@ -3,7 +3,7 @@ pipeline {
             registry = 'keoffor/project2-email'
             dockerHubCreds = 'Docker_hub'
             dockerImage = ''
-            deploymentFile = 'k8s/'
+            deploymentFile = 'k8s'
         }
       agent any
     stages {
@@ -73,7 +73,7 @@ pipeline {
                         echo "build deployment " + deploymentFile
                         dir("project2") {
 
-                         sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./k8s/'
+                         sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./k8s'
                          sh 'cat ./k8s/'
                        step([$class: 'KubernetesEngineBuilder',
                            projectId: 'macro-key-339512',
