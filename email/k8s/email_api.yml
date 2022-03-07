@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project2-email
+  labels:
+    app: emailapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: emailapp
+  template:
+    metadata:
+      labels:
+        app: emailapp
+    spec:
+      containers:
+        - image: keoffor/project2-email:%TAG%
+          imagePullPolicy: Always
+          name: project2-container
+          ports:
+            - containerPort: 4000
+
+
+
