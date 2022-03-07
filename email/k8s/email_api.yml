@@ -27,8 +27,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: email-service
-  name: emailapi
+    app: emailapi
+  name: email-service
   namespace: default
 spec:
   type: LoadBalancer
@@ -37,5 +37,5 @@ spec:
       port: 4001
       targetPort: 4001
   selector:
-    app: project2app
+    app: emailapp
 
