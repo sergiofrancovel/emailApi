@@ -79,7 +79,7 @@ pipeline {
                            projectId: 'macro-key-339512',
                            clusterName: 'macro-key-339512-gke',
                            zone: 'us-central1',
-                           manifestPattern: './k8s/',
+                           manifestPattern: 'k8s/',
                            credentialsId: 'macro-key-339512',
                            verifyDeployments: true
                        ])
