@@ -71,7 +71,7 @@ pipeline {
                    }
                    steps{
                         echo "build deployment " + deploymentFile
-                        dir("project2") {
+                        dir("email") {
 
                          sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./k8s/'
                          sh 'cat ./k8s/'
