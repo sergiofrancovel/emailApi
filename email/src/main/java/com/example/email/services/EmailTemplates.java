@@ -14,9 +14,8 @@ public class EmailTemplates {
 
 
     public void setNewAppointment(EmailAppointmentDTO emailAppointmentDTO) {
-        this.newAppointment = "Hello, " + emailAppointmentDTO.getPatientfn() + "!\n\nThis email confirms your appointment on " + emailAppointmentDTO.getSchedule() +
-                " made at the time of " + emailAppointmentDTO.getAppointmentTime() + " with doctor " + emailAppointmentDTO.getDoctorfn() + " " +
-                emailAppointmentDTO.getDoctorln() +
+        this.newAppointment = "Hello, " + emailAppointmentDTO.getPatientfn() + "!\n\nThis email confirms your appointment on " + emailAppointmentDTO.getAppointmentTime() +
+                " at the time of " + emailAppointmentDTO.getSchedule() + " with doctor " + emailAppointmentDTO.getDoctorfn() + " " +
     "\nIf you'd like to make changes to your appointment, " +
                 "reach back to your doctor or feel free to reply to this email\n\nHave a great day!";
     }
@@ -34,7 +33,7 @@ public class EmailTemplates {
         + "To view the details of your medication, sign in to the Hopital website with your username" +
         " and password.\n\nHere is the current status of your prescription: "+ noteDTO.getStatus()+
         "\n\nIf you have any questions about your medication of the status of your medication, "+
-        "please contact your pharmacist at "+ noteDTO.getPharmacist_email()+"\n\nHave a great day!";
+        "please contact your pharmacist.\n\nHave a great day!";
     }
 
 }

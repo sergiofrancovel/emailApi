@@ -22,6 +22,7 @@ public class EmailController {
 
     @PostMapping(value = "newappointment", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity createNewAppointment(@RequestBody EmailAppointmentDTO emailAppointmentDTO){
+        System.out.println(emailAppointmentDTO);
         EmailTemplates emailTemplates = new EmailTemplates();
         emailTemplates.setNewAppointment(emailAppointmentDTO);
         service.sendSimpleMessageForOrder(emailAppointmentDTO.getPatientEmail(), emailTemplates.getNewAppointment(),
@@ -43,7 +44,7 @@ public class EmailController {
         EmailTemplates emailTemplates = new EmailTemplates();
         emailTemplates.createPrescription(noteDTO);
         service.sendSimpleMessageForOrder(noteDTO.getPatientEmail(), emailTemplates.getPrescription(),
-                "Your patient notes have been updated");
+                "New prescription has been assigned to you");
         return ResponseEntity.noContent().build();
     }
 }

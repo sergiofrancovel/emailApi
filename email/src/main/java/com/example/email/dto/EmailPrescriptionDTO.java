@@ -14,9 +14,8 @@ public class EmailPrescriptionDTO{
     private String doctor;
     private String patient;
     private String medicineName;
-    private Float dosage;
+    private int dosage;
     private Status status;
-    private String pharmacist_email;
     private String patientEmail;
 }
 

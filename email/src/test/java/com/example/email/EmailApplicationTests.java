@@ -51,11 +51,10 @@ class EmailApplicationTests {
     @Test
     void testEmailAppointmentDTO(){
         EmailAppointmentDTO emailAppointmentDTO = new EmailAppointmentDTO("test", "test",
-                "test", "test", "test","test", date);
+                "test", "test","test", date);
         EmailAppointmentDTO dto = new EmailAppointmentDTO();
         dto.setAppointmentTime(date);
         dto.setDoctorfn("test");
-        dto.setDoctorln("test");
         dto.setPatientfn("test");
         dto.setPatientEmail("test");
         dto.setPatientfn("test");
@@ -64,7 +63,6 @@ class EmailApplicationTests {
         dto.getAppointmentTime();
         dto.getPatientEmail();
         dto.getDoctorfn();
-        dto.getDoctorln();
         dto.getPatientfn();
         dto.getPatientln();
         dto.getSchedule();

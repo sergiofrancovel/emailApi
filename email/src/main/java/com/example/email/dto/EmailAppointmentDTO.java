@@ -1,13 +1,11 @@
 package com.example.email.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
+@ToString
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,7 +13,6 @@ import java.util.Date;
 public class EmailAppointmentDTO {
     private String patientEmail;
     private String doctorfn;
-    private String doctorln;
     private String patientfn;
     private String patientln;
     private String schedule;
