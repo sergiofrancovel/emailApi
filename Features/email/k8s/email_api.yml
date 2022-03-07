@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project2-email
+  labels:
+    app: emailapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: emailapp
+  template:
+    metadata:
+      labels:
+        app: emailapp
+    spec:
+      containers:
+        - image: keoffor/project2-email:%TAG%
+          imagePullPolicy: Always
+          name: email-container
+          ports:
+            - containerPort: 4001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: emailapi
+  name: email-service
+  namespace: default
+spec:
+  type: LoadBalancer
+  ports:
+    - name: project-loader
+      port: 4001
+      targetPort: 4001
+  selector:
+    app: emailapp
+
