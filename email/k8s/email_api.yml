@@ -33,9 +33,21 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - name: project-loader
+    - name: email-loader
       port: 4001
       targetPort: 4001
   selector:
     app: emailapp
 
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: java-service-monitor
+spec:
+  selector:
+    matchLabels:
+      app: project2-email
+  endpoints:
+    - port: email-loader
+      path: "/actuator/prometheus"
